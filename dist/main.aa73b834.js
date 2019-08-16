@@ -184,12 +184,74 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/normalize.min.css":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"css/main.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"js/Es6Way/TipCalculator.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var TipCalculator =
+/*#__PURE__*/
+function () {
+  function TipCalculator() {
+    _classCallCheck(this, TipCalculator);
+  }
+
+  _createClass(TipCalculator, [{
+    key: "retrieveData",
+    value: function retrieveData() {
+      return document.querySelector("#js-tip-input").value;
+    }
+  }, {
+    key: "calculateData",
+    value: function calculateData() {
+      var dataToCalculate = this.retrieveData(),
+          tipCalculation = Math.round(dataToCalculate * 0.15 * 10) / 10;
+      return tipCalculation;
+    }
+  }, {
+    key: "printTipMessage",
+    value: function printTipMessage() {
+      document.querySelector("#js-tip-message").textContent = this.calculateData();
+    }
+  }]);
+
+  return TipCalculator;
+}();
+
+;
+var _default = TipCalculator;
+exports.default = _default;
+},{}],"js/Es6Way/main.js":[function(require,module,exports) {
+"use strict";
+
+require("../../css/main.css");
+
+var _TipCalculator = _interopRequireDefault(require("./TipCalculator"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.addEventListener("load", function () {
+  var tipCalulator = new _TipCalculator.default();
+  document.querySelector("#js-tip-btn").addEventListener("click", function () {
+    tipCalulator.printTipMessage();
+  }); // vs: why does below always show 0 as input when page loads?
+  // document.querySelector("#js-tip-btn").addEventListener("click", tipCalulator.printTipMessage());
+});
+},{"../../css/main.css":"css/main.css","./TipCalculator":"js/Es6Way/TipCalculator.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -392,5 +454,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/normalize.min.fd84a420.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/Es6Way/main.js"], null)
+//# sourceMappingURL=/main.aa73b834.js.map

@@ -137,13 +137,18 @@ function () {
   function TipCalculator() {
     _classCallCheck(this, TipCalculator);
 
-    this.tip = 0.15;
-    this.btn = document.querySelector('#js-tip-btn');
-    this.input = document.querySelector('#js-tip-input');
-    this.btn.addEventListener("click", this.userMessage.bind(this));
+    this.init();
   }
 
   _createClass(TipCalculator, [{
+    key: "init",
+    value: function init() {
+      this.tip = 0.15;
+      this.btn = document.querySelector('#js-tip-btn');
+      this.input = document.querySelector('#js-tip-input');
+      this.btn.addEventListener("click", this.userMessage.bind(this));
+    }
+  }, {
     key: "userMessage",
     value: function userMessage() {
       document.querySelector('#js-tip-message').innerText = this.calculateTip();
@@ -243,7 +248,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 window.addEventListener("load", function () {
   var tip = new _TipCalculator.default();
-  tip();
+  tip.init();
 });
 },{"./TipCalculator":"js/TipCalculator.js","../css/main.css":"css/main.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -273,7 +278,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61539" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49791" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
